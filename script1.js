@@ -20,14 +20,13 @@ $(function(){
                 hour++
                 mintues=0
             };
-
-            show = setInterval(function(){            
-                notSec.innerHTML = notSeconds;
-                    sec.innerHTML = seconds;
-                    min.innerHTML=mintues
-                    h.innerHTML = hour
-                
-            },10);
+        },10);
+        show = setInterval(function(){            
+            notSec.innerHTML = notSeconds;
+                sec.innerHTML = seconds;
+                min.innerHTML=mintues
+                h.innerHTML = hour
+            
         },10);
     } ;
 
@@ -39,7 +38,7 @@ $(function(){
             start();
         }else{
             isRunning=false;
-            clearInterval(show);
+            clearInterval(time);
         }
     };
     function reset(){
