@@ -5,6 +5,7 @@ $(function(){
     let seconds = 00;
     let notSeconds = 00;
     
+    let showA = true;
     
     let time;
     function start(){
@@ -20,7 +21,11 @@ $(function(){
                 hour++
                 mintues=0
             };
+            console.log(showA)
         },10);
+    } ;
+    let show;
+    function showF(){
         show = setInterval(function(){            
             notSec.innerHTML = notSeconds;
                 sec.innerHTML = seconds;
@@ -28,7 +33,7 @@ $(function(){
                 h.innerHTML = hour
             
         },10);
-    } ;
+    }
 
     start();
     let isRunning = true;
@@ -36,9 +41,13 @@ $(function(){
         if(isRunning == false){
             isRunning=true;
             start();
+            showF();
+            showA = true
         }else{
             isRunning=false;
+            showA = false
             clearInterval(time);
+            clearInterval(show);
         }
     };
     function reset(){
@@ -51,8 +60,13 @@ $(function(){
         min.innerHTML=mintues;
         sec.innerHTML = seconds;
         notSec.innerHTML = notSeconds;
-    }else{
+        showA = true
+    }else if(showA== true){
         clearInterval(show)
+        showA = false
+    }else{
+        showF()
+        showA=true
     }
 }
     reset();
